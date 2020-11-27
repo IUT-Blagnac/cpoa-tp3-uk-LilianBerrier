@@ -87,15 +87,15 @@ endif::[]
 //------------------------------------ 
 == {assignment}
 
-{lastName}:: BRUEL
+{lastName}:: BERRIER
 
-{firstName}:: Jean-Michel
+{firstName}:: Lilian	
 
 {group} #::
 
 [%interactive]
-- [x] {Enseignants}
-- [ ] 1
+- [ ] {Enseignants}
+- [x] 1
 - [ ] 2
 - [ ] 3
 - [ ] 4
@@ -244,20 +244,20 @@ image::Pizzas-dc.svg[]
 [source,java]
 -------
 public class PizzaTestDrive {
-    public static void main(String[] args) {
-        Pizzeria shopFromBrest = new PizzeriaFactory().create("Brest");
-        Pizzeria shopFromStrasbourg = new PizzeriaFactory().create("Strasbourg");
+	public static void main(String[] args) {
+		Pizzeria shopFromBrest = PizzeriaFactory.getInstance().create("Brest");
+		Pizzeria shopFromStrasbourg = PizzeriaFactory.getInstance().create("Strasbourg");
 
-        Pizza pizza = shopFromBrest.orderPizza("cheese");
-        System.out.println("JMB has ordered a " + pizza.getName() + "\n");
+		Pizza pizza = shopFromBrest.orderPizza("cheese");
+		System.out.println("JMB has ordered a " + pizza.getName() + "\n");
 
-        pizza = shopFromStrasbourg.orderPizza("cheese");
-        System.out.println("JMI has ordered a " + pizza.getName() + "\n");
-    }
+		pizza = shopFromStrasbourg.orderPizza("cheese");
+		System.out.println("JMI has ordered a " + pizza.getName() + "\n");
+	}
 }
 -------
 
-.Résultat d'exécution
+.Execution results
 ............
 $ java -jar target/pizzeria-1.0.jar
 Preparation of Pizza with Brest style sauce and cheese
@@ -265,7 +265,7 @@ Spread the pizza dough...
 Add the sauce...
 Add the garnitures: 
  Parmigiano reggiano
-Bake 25 minutes at 180°
+Bake 25 minutes at 180 degrees
 Cut the pizza in triangles
 Put the pizza in the official box
 JMB has ordered a Pizza with Brest style sauce and cheese
@@ -275,13 +275,15 @@ Spread the pizza dough...
 Add the sauce...
 Add the garnitures: 
  Mozzarella
-Bake 25 minutes at 180°
+Bake 25 minutes at 180 degrees
 Cut in square portions
 Put the pizza in the official box
 JMI has ordered a Pizza Strasbourg style with cheese
 
 ............
 
+.expected Structure
+image::TP3.svg[]
 
 WARNING: This assessment is graded. The autograding will run the tests via `gradle test` and `maven test`, as well as `test0` and the test of the model. This will constitute  80%of your grade. The remaining 20% will be evaluated by your TA and will focus on the tests (number and quality).
 
